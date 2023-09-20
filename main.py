@@ -55,12 +55,12 @@ if 'requests' not in st.session_state:
 def is_valid_api_key(openai_api_key):
     return openai_api_key and openai_api_key.startswith('sk-') and len(openai_api_key) == 51
 
-openai_api_key_container = st.sidebar.empty()                               # Create an empty container to conditionally display the API Key input field
-openai_api_key = openai_api_key_container.text_input('OpenAI API Key')# Get the OpenAI API key from the user
-# openai_api_key =  st.secrets['open_api_key']
+# openai_api_key_container = st.sidebar.empty()                               # Create an empty container to conditionally display the API Key input field
+# openai_api_key = openai_api_key_container.text_input('OpenAI API Key')# Get the OpenAI API key from the user
+openai_api_key =  st.secrets['open_api_key']
 
-# if not openai_api_key:
-#     openai_api_key = st.sidebar.text_input('OpenAI API Key')
+if not openai_api_key:
+    openai_api_key = st.sidebar.text_input('OpenAI API Key')
         
 if is_valid_api_key(openai_api_key):
     with st.sidebar:
