@@ -66,7 +66,7 @@ if is_valid_api_key(openai_api_key):
     with st.sidebar:
             st.success('API Key is valid! You can proceed.', icon='✅')
             
-    openai_api_key_container.empty() # Hide the openai_api_key input field
+    # openai_api_key_container.empty() # Hide the openai_api_key input field
     openai.api_key = openai_api_key
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key)
 
