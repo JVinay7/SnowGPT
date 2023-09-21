@@ -7,13 +7,14 @@ import snowflake.connector
 
 # Define Snowflake connection parameters
 conn = {
-    "user"  : snowflake_user,
+    "user": snowflake_user,
     "password": snowflake_password,
     "account": snowflake_account,
     "warehouse": snowflake_warehouse,
     "database": snowflake_database,
     "schema": snowflake_schema
 }
+
 # Create a Snowflake connection
 connection = snowflake.connector.connect(**conn)
 
@@ -56,6 +57,7 @@ def add_query_history(query):
     insert_query = f"INSERT INTO history_table (history) VALUES ('{query}');"
     cursor.execute(insert_query)
     cursor.close()
+
 
 # Function to fetch query history from the history_table and delete a query by index 
 def manage_query_history(index=None):
